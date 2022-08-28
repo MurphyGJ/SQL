@@ -1,0 +1,81 @@
+/* Table of Pokemon pokedex ID, name and type*/
+
+CREATE TABLE names (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    typing TEXT);
+    
+INSERT INTO names (name, typing)
+    VALUES ("Bulbasaur", "Grass Poison");
+INSERT INTO names (name, typing)
+    VALUES ("Ivysaur", "Grass Poison");
+INSERT INTO names (name, typing)
+    VALUES ("Venusaur", "Grass Poison");
+INSERT INTO names (name, typing)
+    VALUES ("Charmander", "Fire");
+INSERT INTO names (name, typing)
+    VALUES ("Charmeleon", "Fire");
+INSERT INTO names (name, typing)
+    VALUES ("Charizard", "Fire");
+INSERT INTO names (name, typing)
+    VALUES ("Squirtle", "Water");
+INSERT INTO names (name, typing)
+    VALUES ("Wartortle", "Water");
+INSERT INTO names (name, typing)
+    VALUES ("Blastoise", "Water");
+INSERT INTO names (name, typing)
+    VALUES ("Caterpie", "Bug");
+INSERT INTO names (name, typing)
+    VALUES ("Metapod", "Bug");
+INSERT INTO names (name, typing)
+    VALUES ("Butterfree", "Bug");
+INSERT INTO names (name, typing)
+    VALUES ("Weedle", "Bug Poison");
+INSERT INTO names (name, typing)
+    VALUES ("Kakuna", "Bug Poison");
+INSERT INTO names (name, typing)
+    VALUES ("Beedrill", "Bug Poison");
+
+/* Table of pokemon using reference to pokemon pokedex id, and pokemon category*/
+
+CREATE TABLE category (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    names_id INTEGER,
+    cat_name TEXT);
+    
+INSERT INTO category (names_id, cat_name)
+    VALUES (1, "Seed");
+INSERT INTO category (names_id, cat_name)
+    VALUES (2, "Seed");
+INSERT INTO category (names_id, cat_name)
+    VALUES (3, "Seed");
+INSERT INTO category (names_id, cat_name)
+    VALUES (4, "Lizard");
+INSERT INTO category (names_id, cat_name)
+    VALUES (5, "Flame");
+INSERT INTO category (names_id, cat_name)
+    VALUES (6, "Flame");
+INSERT INTO category (names_id, cat_name)
+    VALUES (7, "Tiny Turtle");
+INSERT INTO category (names_id, cat_name)
+    VALUES (8, "Turtle");
+INSERT INTO category (names_id, cat_name)
+    VALUES (9, "Shellfish");
+INSERT INTO category (names_id, cat_name)
+    VALUES (10, "Worm");
+INSERT INTO category (names_id, cat_name)
+    VALUES (11, "Cocoon");
+INSERT INTO category (names_id, cat_name)
+    VALUES (12, "Butterfly");
+INSERT INTO category (names_id, cat_name)
+    VALUES (13, "Hairy Bug");
+INSERT INTO category (names_id, cat_name)
+    VALUES (14, "Cocoon");
+INSERT INTO category (names_id, cat_name)
+    VALUES (15, "Poison Bee");
+
+/* Query to show the pokemon name, type, and category */ 
+
+SELECT names.name, names.typing, category.cat_name FROM names
+Join category
+ON names.id = category.names_id;
