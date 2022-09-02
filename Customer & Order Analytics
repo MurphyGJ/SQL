@@ -84,3 +84,10 @@ FROM BIT_DB.FebSales
 LEFT JOIN BIT_DB.customers
 ON FebSales.orderid = customers.order_id;
 
+#13.	Which product brought in the most revenue in January and how much revenue did it bring in total?
+
+SELECT product, SUM(quantity*price)
+FROM BIT_DB.JanSales 
+GROUP BY product
+ORDER BY SUM(quantity*price) DESC
+LIMIT 1;
