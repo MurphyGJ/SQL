@@ -1,0 +1,56 @@
+/* What does the movie database's SQL look like? */
+
+CREATE TABLE movies (
+    id INTEGER PRIMARY KEY, 
+    titles TEXT,
+    rating INTEGER);
+
+/* Inserting the rows of data into the table */
+
+INSERT INTO movies (id, titles, rating)
+VALUES (1, "Trick r Treat", 5);
+    
+INSERT INTO movies (id, titles, rating)
+VALUES (2, "The Exorcist", 5);
+    
+INSERT INTO movies (id, titles, rating)
+VALUES (3, "Halloween 3: Season of the Witch", 2);
+    
+INSERT INTO movies (id, titles, rating)
+VALUES (4, "Nightmare on Elm Street", 5);
+    
+INSERT INTO movies (id, titles, rating)
+VALUES (5, "The Conjuring", 5);
+
+INSERT INTO movies (id, titles, rating)
+VALUES (6, "Carrie", 6);
+
+/* Displaying the Table */
+
+SELECT * FROM movies;
+
+/* Adding an additional column to the table */
+
+ALTER TABLE movies ADD genre TEXT default "na";
+
+/* Displaying the Table */
+
+SELECT * FROM movies;
+
+/* Updating table to reflect the correct genre */
+
+UPDATE movies SET genre = "Horror"
+WHERE genre = "na";
+
+/* Displaying the Table */
+
+SELECT * FROM movies;
+
+/* Deleted entry with the lowest rating */
+
+DELETE FROM movies
+WHERE titles = "Halloween 3: Season of the Witch";
+
+/* Displaying the Table */
+
+SELECT * FROM movies;
